@@ -9,8 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WackAWorm">
-        <activity android:name=".Game"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".Game"
+        android:screenOrientation="landscape" ></activity>
+        <activity android:name=".MainActivity"
+            android:screenOrientation="landscape"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
