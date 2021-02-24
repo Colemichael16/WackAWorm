@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.widget.TextView;
 
 public class Game extends AppCompatActivity {
+    TextView textView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -14,7 +17,7 @@ public class Game extends AppCompatActivity {
 
         new CountDownTimer(50000, 1000) {
             public void onTick(long millisUntilFinished) {
-                long sec = millisUntilFinished / 1000) ;
+                long sec = millisUntilFinished / 1000;
                 textView.setText(sec+"");
             }
             public void onFinish() {

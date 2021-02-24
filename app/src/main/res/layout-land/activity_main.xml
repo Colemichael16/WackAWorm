@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CC9866"
+    android:background="@drawable/titlebg"
     tools:context=".MainActivity">
 
     <ImageView
@@ -15,16 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.787"
+        app:layout_constraintVertical_bias="0.704"
         app:srcCompat="@drawable/playbtn" />
-
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#CC9866"
-        app:srcCompat="@drawable/titlebg"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="205dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
