@@ -2,9 +2,10 @@ package org.legendtitans.wackaworm;
 
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import java.util.Random;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 public class Game extends AppCompatActivity {
@@ -32,14 +33,13 @@ public class Game extends AppCompatActivity {
         imageView6 = findViewById(R.id.imageView6);
         imageView7 = findViewById(R.id.imageView7);
         imageView8 = findViewById(R.id.imageView8);
-
-
-        ImageView[] Worms = {imageView, imageView2, imageView3, imageView4, imageView5, imageView6, imageView7,imageView8 };
+        ImageView[] Worms = {imageView, imageView2, imageView3, imageView4, imageView5, imageView6, imageView7, imageView8};
         new CountDownTimer(50000, 1000) {
             public void onTick(long millisUntilFinished) {
                 long sec = millisUntilFinished / 1000;
-                textView.setText(sec+"");
+                textView.setText(sec + "");
             }
+
             public void onFinish() {
                 textView.setText("0");
                 System.exit(0);
@@ -48,15 +48,18 @@ public class Game extends AppCompatActivity {
         }.start();
 
         new CountDownTimer(3000, 3000) {
+            Random random = new Random();
+            int randNum;
             public void onTick(long millisUntilFinished) {
-                long sec = millisUntilFinished / 1000;
-                textView.setText(sec+"");
+                randNum = random.nextInt(8);
+                Worms[randNum].setVisibility(View.VISIBLE);
             }
+
             public void onFinish() {
-                textView.setText("0");
-                System.exit(0);
-
+        Worms[randNum].setVisibility(View.INVISIBLE);
+start();
             }
-    }
+        }.start();
 
+    }
 }
