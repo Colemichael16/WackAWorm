@@ -25,6 +25,7 @@ public class Game extends AppCompatActivity {
     ImageView imageView7;
     ImageView imageView8;
     int points = 0;
+    String Points = Integer.toString(points);
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,23 +109,13 @@ public class Game extends AppCompatActivity {
         });
 
         ImageView[] Worms = {imageView, imageView2, imageView3, imageView4, imageView5, imageView6, imageView7, imageView8};
-        new CountDownTimer(50000, 1000) {
-            public void onTick(long millisUntilFinished) {
-                long sec = millisUntilFinished / 1000;
-                textView.setText(sec + "");
-            }
 
-            public void onFinish() {
-                textView.setText("0");
-                System.exit(0);
 
-            }
-        }.start();
-
-        new CountDownTimer(3000, 3000) {
-            Random random = new Random();
+        CountDownTimer Wormtimer = new CountDownTimer(3000, 3000) {
             int randNum;
+
             public void onTick(long millisUntilFinished) {
+                Random random = new Random();
                 randNum = random.nextInt(8);
                 Worms[randNum].setVisibility(View.VISIBLE);
             }
@@ -135,6 +126,19 @@ start();
             }
         }.start();
 
+        new CountDownTimer(30000, 1000) {
+            public void onTick(long millisUntilFinished) {
+                long sec = millisUntilFinished / 1000;
+                textView.setText(sec + "");
+            }
+
+            public void onFinish() {
+                textView.setText("0");
+   //             System.exit(0);
+                Wormtimer.cancel();
+        //        Worms[randNum].setVisibility(View.INVISIBLE);
+            }
+        }.start();
     }
 }
 
