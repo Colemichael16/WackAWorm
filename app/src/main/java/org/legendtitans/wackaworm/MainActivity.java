@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
                     public boolean onTouch(View v, MotionEvent event) {
 
-                Toast.makeText(getApplicationContext(), "I was touched", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(MainActivity.this, Game.class));
+
+                startActivity(new Intent(getApplicationContext(), Game.class));
                 return false;
             }
         });

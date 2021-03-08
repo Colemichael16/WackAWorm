@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,14 +25,16 @@ public class Game extends AppCompatActivity {
     ImageView imageView6;
     ImageView imageView7;
     ImageView imageView8;
+    Button TONEXTLEVEL;
     int points = 0;
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+        TONEXTLEVEL = findViewById(R.id.TONEXTLEVEL);
         textView = findViewById(R.id.timerview);
-        textViewScore = findViewById(R.id.textView2);
+        textViewScore = findViewById(R.id.textView);
         imageView = findViewById(R.id.imageView);
         imageView2 = findViewById(R.id.imageView2);
         imageView3 = findViewById(R.id.imageView3);
@@ -45,7 +48,8 @@ public class Game extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
 
                 points = points + 1;
-                textViewScore.setText(points);
+                textViewScore.setText(""+points);
+                imageView.setVisibility(View.INVISIBLE);
 
                 return false;
             }
@@ -54,7 +58,8 @@ public class Game extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 points = points + 1;
-                textViewScore.setText(points);
+                textViewScore.setText(""+points);
+                imageView2.setVisibility(View.INVISIBLE);
                 return false;
             }
         });
@@ -62,7 +67,8 @@ public class Game extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 points = points + 1;
-                textViewScore.setText(points);
+                textViewScore.setText(""+points);
+                imageView3.setVisibility(View.INVISIBLE);
                 return false;
             }
         });
@@ -70,39 +76,44 @@ public class Game extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 points = points + 1;
-                textViewScore.setText(points);
+                textViewScore.setText(""+points);
+                imageView4.setVisibility(View.INVISIBLE);
                 return false;
             }
         });
         imageView5.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                textViewScore.setText(points);
+                textViewScore.setText(""+points);
                 points = points + 1;
+                imageView5.setVisibility(View.INVISIBLE);
                 return false;
             }
         });
         imageView6.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                textViewScore.setText(points);
+                textViewScore.setText(""+points);
                 points = points + 1;
+                imageView6.setVisibility(View.INVISIBLE);
                 return false;
             }
         });
         imageView7.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                textViewScore.setText(points);
+                textViewScore.setText(""+points);
                 points = points + 1;
+                imageView7.setVisibility(View.INVISIBLE);
                 return false;
             }
         });
         imageView8.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                textViewScore.setText(points);
+                textViewScore.setText(""+points);
                 points = points + 1;
+                imageView8.setVisibility(View.INVISIBLE);
                 return false;
             }
         });
@@ -115,8 +126,9 @@ public class Game extends AppCompatActivity {
             }
 
             public void onFinish() {
+
                 textView.setText("0");
-                System.exit(0);
+             TONEXTLEVEL.setVisibility(View.VISIBLE);
 
             }
         }.start();
