@@ -46,9 +46,8 @@ public class Game extends AppCompatActivity {
         imageView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-
-                points = points + 1;
                 textViewScore.setText(""+points);
+                points = points + 1;
                 imageView.setVisibility(View.INVISIBLE);
 
                 return false;
@@ -57,8 +56,8 @@ public class Game extends AppCompatActivity {
         imageView2.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                points = points + 1;
                 textViewScore.setText(""+points);
+                points = points + 1;
                 imageView2.setVisibility(View.INVISIBLE);
                 return false;
             }
@@ -66,8 +65,8 @@ public class Game extends AppCompatActivity {
         imageView3.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                points = points + 1;
                 textViewScore.setText(""+points);
+                points = points + 1;
                 imageView3.setVisibility(View.INVISIBLE);
                 return false;
             }
@@ -75,8 +74,8 @@ public class Game extends AppCompatActivity {
         imageView4.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                points = points + 1;
                 textViewScore.setText(""+points);
+                points = points + 1;
                 imageView4.setVisibility(View.INVISIBLE);
                 return false;
             }
@@ -119,7 +118,7 @@ public class Game extends AppCompatActivity {
         });
 
         ImageView[] Worms = {imageView, imageView2, imageView3, imageView4, imageView5, imageView6, imageView7, imageView8};
-        new CountDownTimer(50000, 1000) {
+        CountDownTimer WormJumps = new CountDownTimer(50000, 1000) {
             public void onTick(long millisUntilFinished) {
                 long sec = millisUntilFinished / 1000;
                 textView.setText(sec + "");
@@ -128,8 +127,7 @@ public class Game extends AppCompatActivity {
             public void onFinish() {
 
                 textView.setText("0");
-             TONEXTLEVEL.setVisibility(View.VISIBLE);
-
+                TONEXTLEVEL.setVisibility(View.VISIBLE);
             }
         }.start();
 
