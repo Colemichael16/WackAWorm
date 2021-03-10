@@ -27,6 +27,7 @@ public class Game extends AppCompatActivity {
     ImageView imageView8;
     Button TONEXTLEVEL;
     int points = 0;
+
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,7 @@ public class Game extends AppCompatActivity {
         TONEXTLEVEL = findViewById(R.id.TONEXTLEVEL);
         textView = findViewById(R.id.timerview);
         textViewScore = findViewById(R.id.textView);
+        textViewScore.setText(""+points);
         imageView = findViewById(R.id.imageView);
         imageView2 = findViewById(R.id.imageView2);
         imageView3 = findViewById(R.id.imageView3);
@@ -43,6 +45,7 @@ public class Game extends AppCompatActivity {
         imageView6 = findViewById(R.id.imageView6);
         imageView7 = findViewById(R.id.imageView7);
         imageView8 = findViewById(R.id.imageView8);
+
         imageView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -118,20 +121,7 @@ public class Game extends AppCompatActivity {
         });
 
         ImageView[] Worms = {imageView, imageView2, imageView3, imageView4, imageView5, imageView6, imageView7, imageView8};
-        CountDownTimer WormJumps = new CountDownTimer(50000, 1000) {
-            public void onTick(long millisUntilFinished) {
-                long sec = millisUntilFinished / 1000;
-                textView.setText(sec + "");
-            }
-
-            public void onFinish() {
-
-                textView.setText("0");
-                TONEXTLEVEL.setVisibility(View.VISIBLE);
-            }
-        }.start();
-
-        new CountDownTimer(3000, 3000) {
+        CountDownTimer WormJumps = new CountDownTimer(3000, 3000) {
             Random random = new Random();
             int randNum;
             public void onTick(long millisUntilFinished) {
@@ -140,11 +130,30 @@ public class Game extends AppCompatActivity {
             }
 
             public void onFinish() {
-        Worms[randNum].setVisibility(View.INVISIBLE);
-start();
+                Worms[randNum].setVisibility(View.INVISIBLE);
+                start();
             }
         }.start();
 
+
+        new CountDownTimer(10000, 1000) {
+            public void onTick(long millisUntilFinished) {
+                long sec = millisUntilFinished / 1000;
+                textView.setText(sec + "");
+            }
+
+            public void onFinish() {
+                WormJumps.cancel();
+                textView.setText("0");
+                TONEXTLEVEL.setVisibility(View.VISIBLE);
+            }
+        }.start();
+
+
+
+    }
+    public void ToNextLevel (View v) {
+        startActivity(new Intent(getApplicationContext(), Game2.class));
     }
 }
 

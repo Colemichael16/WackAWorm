@@ -138,6 +138,7 @@
         android:id="@+id/TONEXTLEVEL"
         android:layout_width="238dp"
         android:layout_height="77dp"
+        android:onClick="ToNextLevel"
         android:text="To Next Level"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
