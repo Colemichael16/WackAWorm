@@ -38,13 +38,13 @@ public class Game extends AppCompatActivity {
         textViewScore = findViewById(R.id.textView);
         textViewScore.setText(""+points);
         imageView = findViewById(R.id.imageView);
-        imageView2 = findViewById(R.id.imageView2);
-        imageView3 = findViewById(R.id.imageView3);
-        imageView4 = findViewById(R.id.imageView4);
-        imageView5 = findViewById(R.id.imageView5);
-        imageView6 = findViewById(R.id.imageView6);
-        imageView7 = findViewById(R.id.imageView7);
-        imageView8 = findViewById(R.id.imageView8);
+        imageView2 = findViewById(R.id.imageView8);
+        imageView3 = findViewById(R.id.imageView2);
+        imageView4 = findViewById(R.id.imageView3);
+        imageView5 = findViewById(R.id.imageView4);
+        imageView6 = findViewById(R.id.imageView5);
+        imageView7 = findViewById(R.id.imageView6);
+        imageView8 = findViewById(R.id.imageView7);
 
         imageView.setOnTouchListener(new View.OnTouchListener() {
             @Override
