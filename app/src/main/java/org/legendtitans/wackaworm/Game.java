@@ -27,7 +27,7 @@ public class Game extends AppCompatActivity {
     ImageView imageView8;
     Button TONEXTLEVEL;
     int points = 0;
-
+//test
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
